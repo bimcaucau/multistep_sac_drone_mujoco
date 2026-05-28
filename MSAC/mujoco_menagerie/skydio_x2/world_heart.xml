@@ -1,0 +1,40 @@
+<mujoco model="Skydio X2 Basic Training">
+  <include file="x2.xml"/>
+
+  <statistic center="0 0 0.1" extent="10" meansize=".05"/>
+  
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3"/>
+  </visual>
+
+  <asset>
+    <texture type="2d" name="ground" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="300" height="300"/>
+    <material name="ground_mat" texture="ground" texrepeat="5 5"/>
+    <material name="goal_mat" rgba="0.2 0.8 0.2 0.5"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" directional="true"/>
+    
+    <!-- Sàn nhà -->
+    <geom name="floor" size="20 20 0.1" type="plane" material="ground_mat"/>
+    
+<!-- 16 Fat Heart Waypoints (Hardcoded so the Viewer renders them perfectly) -->
+    <site name="waypoint0"  pos="0.00 1.18 3.71"  size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint1"  pos="0.31 1.81 4.09"  size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint2"  pos="1.94 2.73 4.64"  size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint3"  pos="4.33 2.43 4.46"  size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint4"  pos="5.50 0.94 3.56"  size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint5"  pos="4.33 -0.77 2.54" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint6"  pos="1.94 -2.26 1.64" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint7"  pos="0.31 -3.48 0.91" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint8"  pos="0.00 -4.00 0.60" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint9"  pos="-0.31 -3.48 0.91" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint10" pos="-1.94 -2.26 1.64" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint11" pos="-4.33 -0.77 2.54" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint12" pos="-5.50 0.94 3.56" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint13" pos="-4.33 2.43 4.46" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint14" pos="-1.94 2.73 4.64" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+    <site name="waypoint15" pos="-0.31 1.81 4.09" size="0.2" rgba="1 0 0 0.3" type="sphere"/>
+  </worldbody>
+</mujoco>

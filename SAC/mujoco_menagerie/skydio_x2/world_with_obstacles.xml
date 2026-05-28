@@ -1,0 +1,27 @@
+<mujoco model="Skydio X2 Arena">
+  <include file="x2.xml"/>
+  <statistic center="0 0 0.1" extent="10" meansize=".05"/>
+  <visual><headlight diffuse="0.6 0.6 0.6" ambient="0.3 0.3 0.3"/></visual>
+  <asset>
+    <texture type="2d" name="ground" builtin="checker" rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3" width="300" height="300"/>
+    <material name="ground" texture="ground" texrepeat="5 5"/>
+    <material name="wall_mat" rgba="0.8 0.2 0.2 1"/>
+    <material name="goal_mat" rgba="0.2 0.8 0.2 0.5"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="20 20 0.1" type="plane" material="ground"/>
+    
+    <!-- Boundary Walls (Prevent Cheating) -->
+    <geom name="wall_left" type="box" size="20 0.1 3" pos="0 5 1" material="wall_mat"/>
+    <geom name="wall_right" type="box" size="20 0.1 3" pos="0 -5 1" material="wall_mat"/>
+
+    <!-- Obstacles (The Walls you must go through) -->
+    <geom name="obs1" type="box" size="0.2 3 3" pos="4 2 1" material="wall_mat"/>
+    <geom name="obs2" type="box" size="0.2 3 3" pos="8 -2 1" material="wall_mat"/>
+
+    <!-- Point B (Goal Visualization) -->
+    <site name="goal" pos="15 0 1" size="0.3" material="goal_mat"/>
+  </worldbody>
+</mujoco>
